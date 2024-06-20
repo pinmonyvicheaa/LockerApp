@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LockerApp extends JFrame {
-    private JTextField passwordField;
+    private JPasswordField passwordField;
     private JButton enterButton;
     private JButton clearButton;
     private JLabel statusLabel;
@@ -19,7 +19,7 @@ public class LockerApp extends JFrame {
         setLayout(new GridLayout(4, 3));
 
         // Initialize components
-        passwordField = new JTextField();
+        passwordField = new JPasswordField();
         enterButton = new JButton("Enter");
         clearButton = new JButton("Clear");
         statusLabel = new JLabel("", SwingConstants.CENTER);
@@ -51,7 +51,7 @@ public class LockerApp extends JFrame {
     private class EnterButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String inputPassword = passwordField.getText();
+            String inputPassword = new String(passwordField.getPassword());
 
             if (savedPassword == null) {
                 savedPassword = inputPassword;
